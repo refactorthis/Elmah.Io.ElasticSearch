@@ -106,11 +106,7 @@ namespace Elmah.Io.ElasticSearch
 
             var defaultIndexSegment = connectionStringSegments.FirstOrDefault(p => p.StartsWith(key, StringComparison.OrdinalIgnoreCase));
 
-            if (defaultIndexSegment == null)
-            {
-                return null;
-            }
-            return defaultIndexSegment.Substring(key.Length).TrimToNull();
+            return defaultIndexSegment?.Substring(key.Length).TrimToNull();
         }
 
         internal IEnumerable<Uri> ParseCsv(string connectionString, string key)
