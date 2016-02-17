@@ -38,7 +38,7 @@ namespace Elmah.Io.ElasticSearch.Tests
             }
         }
 
-        [TestCaseSource("NodesTestCases")]
+        [TestCaseSource(nameof(NodesTestCases))]
         public IEnumerable<Uri> ParseNodes(string connectionString)
         {
             return _service.ParseCsv(connectionString, ElasticConnectionConfiguration.NodesKey);
@@ -65,7 +65,7 @@ namespace Elmah.Io.ElasticSearch.Tests
             }
         }
 
-        [TestCaseSource("DefaultIndexTestCases")]
+        [TestCaseSource(nameof(DefaultIndexTestCases))]
         public string ParseDefaultIndex(string connectionString)
         {
             return _service.ParseSingle(connectionString, ElasticConnectionConfiguration.DefaultIndexKey);
@@ -92,7 +92,7 @@ namespace Elmah.Io.ElasticSearch.Tests
             }
         }
 
-        [TestCaseSource("UsernameTestCases")]
+        [TestCaseSource(nameof(UsernameTestCases))]
         public string ParseUsername(string connectionString)
         {
             return _service.ParseSingle(connectionString, ElasticConnectionConfiguration.UsernameKey);
@@ -119,7 +119,7 @@ namespace Elmah.Io.ElasticSearch.Tests
             }
         }
 
-        [TestCaseSource("PasswordTestCases")]
+        [TestCaseSource(nameof(PasswordTestCases))]
         public string ParsePassword(string connectionString)
         {
             return _service.ParseSingle(connectionString, ElasticConnectionConfiguration.PasswordKey);
@@ -149,7 +149,7 @@ namespace Elmah.Io.ElasticSearch.Tests
         /// <summary>
         /// test the default index method which includes date parsing
         /// </summary>
-        [TestCaseSource("GetDefaultIndexTests")]
+        [TestCaseSource(nameof(GetDefaultIndexTests))]
         public string GetDefaultIndex(string connectionString)
         {
             return _service.GetDefaultIndex(connectionString);
